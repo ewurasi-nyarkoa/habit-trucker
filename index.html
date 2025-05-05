@@ -1,11 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+ 
+  </style>
 </head>
 <body>
-    
+  <header>
+    <h1>HABIT TRACKER</h1>
+  </header>
+
+  <div class="main">
+    <div class="title-row">
+      <img src="https://img.icons8.com/fluency/48/checkmark.png" width="48" alt="check icon" />
+      <h2>Habit Tracker 2025</h2>
+    </div>
+
+    <div class="button-group">
+      <!-- <button class="button">📋 Instructions</button> -->
+      <button class="button">📊 Statistics</button>
+      <button class="button">👤 About me</button>
+      <button class="button">🗂 Get Notion Tips & Updates</button>
+    </div>
+
+    <div class="layout">
+      <div class="today-box">
+        <h4>📅 Today</h4>
+        <p><strong>03 May 2025</strong><br>0%</p>
+        <label><input type="checkbox" /> Habit 1</label>
+        <label><input type="checkbox" /> Habit 2</label>
+        <label><input type="checkbox" /> Habit 3</label>
+      </div>
+
+      <section class="dashboard-right">
+       <div class="dashboard-header">
+          <h1 class="title">Good afternoon, Ewurasi</h1>
+          <p class="subtitle" role="button">Add Your Bedtime</p>
+        </div>
+  <div class="date-range-container">
+          <div class="date-range-tabs">
+            <button class="tab active">Week</button>
+            <button class="tab">Month</button>
+            <button class="tab">Year</button>
+            <button class="tab">All Time</button>
+          </div>
+          <div class="white-button">
+            <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-plus-icon lucide-plus">
+                <path d="M5 12h14" />
+                <path d="M12 5v14" />
+              </svg> Add Habit</button>
+          </div>
+  
+        </div>
+        <div class="week">
+        <div class="main-top">
+          <div class="dateSelector">
+            <button class="nav-btn">&lt;</button>
+            <button class="nav-btn">&gt;</button>
+          </div>
+          <div class="main-top-header">
+            <span>Mon, Apr 28 - Sun, May 04</span>
+          </div>
+          <div class="main-top-left">
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-menu-icon lucide-menu">
+                <path d="M4 12h16" />
+                <path d="M4 18h16" />
+                <path d="M4 6h16" />
+              </svg>
+            </button>
+            <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-layout-grid-icon lucide-layout-grid">
+                <rect width="7" height="7" x="3" y="3" rx="1" />
+                <rect width="7" height="7" x="14" y="3" rx="1" />
+                <rect width="7" height="7" x="14" y="14" rx="1" />
+                <rect width="7" height="7" x="3" y="14" rx="1" />
+              </svg>
+            </button>
+          </div>
+  
+        </div>
+       
+        <div class="streak bar">
+          <p class="progress-text">Up 0% from the week before • 0% achieved</p>
+        </div>
+        <div class="week-main">
+          <div class="habit-item">
+            <div class="habit-info">
+              <h3 class="habit-name">Drink Water</h3>
+              <p class="habit-streak">🔥 Streak: 5 days</p>
+            </div>
+            <div class="habit-menu">
+              <button class="menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-more-horizontal">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="19" cy="12" r="1"></circle>
+                  <circle cx="5" cy="12" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+       </div>
+
+
+
+       
+      
+      </section>
+ 
+<!-- modal to add a habit -->
+      <div class="modal" id="habitModal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2 class="title">Add Habit</h2>
+          <p class="modal-subtitle">Tackle your goals in daily doses</p>
+      
+          <form>
+            <label>1. Name this habit</label>
+            <input type="text" placeholder="Habit name" class="input" required />
+      
+            <label>2. Habit Type</label>
+            <div class="radio-group">
+              <label><input type="radio" name="type" value="to-do" checked /> To-Do</label>
+              <label><input type="radio" name="type" value="not-to-do" /> Not-To-Do</label>
+            </div>
+      
+            <label>3. Weekly frequency</label>
+            <div class="day-buttons">
+              <button type="button" class="day">Mon</button>
+              <button type="button" class="day">Tue</button>
+              <button type="button" class="day">Wed</button>
+              <button type="button" class="day">Thu</button>
+              <button type="button" class="day">Fri</button>
+              <button type="button" class="day">Sat</button>
+              <button type="button" class="day">Sun</button>
+            </div>
+            <div class="frequency-buttons">
+              <button type="button" class="btn small" data-frequency="weekdays">Weekdays</button>
+              <button type="button" class="btn small" data-frequency="everyday">Everyday</button>
+            </div>
+            <button type="submit" class="btn">Add Habit</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- modal to edit habit -->
+      <div class="modal" id="editHabitModal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeEditModal">&times;</span>
+            <h2 class="title">Edit Habit</h2>
+          <form id="editHabitForm">
+            <label>1. Name this habit</label>
+            <input type="text" id="editHabitName" class="input" required />
+      
+            <label>2. Habit Type</label>
+            <div class="radio-group">
+              <label><input type="radio" name="editType" value="to-do" /> To-Do</label>
+              <label><input type="radio" name="editType" value="not-to-do" /> Not-To-Do</label>
+            </div>
+      
+            <label>3. Weekly frequency</label>
+            <div class="day-buttons">
+              <button type="button" class="day">Mon</button>
+              <button type="button" class="day">Tue</button>
+              <button type="button" class="day">Wed</button>
+              <button type="button" class="day">Thu</button>
+              <button type="button" class="day">Fri</button>
+              <button type="button" class="day">Sat</button>
+              <button type="button" class="day">Sun</button>
+            </div>
+            <button type="submit" class="btn">Save Changes</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- model for the pie chat statistics -->
+       <div class="modal"  id="statsModal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2 class="title">Habit Statistics</h2>
+          <p class="modal-subtitle">Your progress in numbers</p>
+          <div class="pie-chart-container">
+            <canvas id="pieChart"></canvas>
+          </div>
+        </div>
+
+       </div>
+
 </body>
 </html>

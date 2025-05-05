@@ -1,0 +1,551 @@
+:root {
+    --primary: #c58b2e; /* Brown as the primary color */
+    --secondary: #fdf6e3; /* Light brown background */
+    --text-dark: #2e2e2e;
+    --text-light: #7d7d7d;
+    --accent: #ffcc00;
+    --white: #fff;
+    --background: #f9f9f9;
+    --border: #ddd;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    color: #333;
+  }
+  header {
+    background-color: #fdf6e3;
+    padding: 40px;
+    text-align: center;
+  }
+  header h1 {
+    color: #c58b2e;
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .tab {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: var(--white);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+  }
+
+  .tab.active {
+    background-color: var(--white);
+    border: 2px solid var(--primary);
+  }
+  .main {
+    padding: 30px 50px;
+  }
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .title-row h2 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  .button-group {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    background: #f4f1eb;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #3e3e3e;
+  }
+
+  .button, .btn {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .button:hover, .btn:hover {
+    background: #a46e1e; /* Darker shade of brown */
+  }
+  .layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .today-box {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .today-box h4 {
+    margin-top: 0;
+  }
+  .today-box label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+  }
+  .tracker {
+    flex-grow: 1;
+  }
+
+  /* .tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  } */
+  .tabs div {
+    cursor: pointer;
+    padding: 6px 10px;
+    border-bottom: 2px solid transparent;
+  }
+  .tabs .active {
+    border-color: black;
+    font-weight: bold;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  th {
+    background-color: #f8f8f8;
+  }
+
+   /* Modal Background Overlay */
+/* .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  /* backdrop-filter: blur(5px); Blur effect */
+  /* display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  z-index: 1000;
+  opacity: 0; */
+  /* visibility: hidden; */
+  /* transition: opacity 0.3s ease, visibility 0.3s ease; */
+/* }  */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /* Blur effect */
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show Modal */
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-content .btn {
+  background-color: transparent;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid var(--primary); 
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 10px;
+}
+
+.modal-content .btn:hover {
+  background: #a46e1e; 
+}
+
+.modal-content .title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color:#333;
+}
+ /* Close Button */
+ .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ff0000; /* Red hover effect */
+}
+
+/* Form Elements */
+.modal-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.modal-content .input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.modal-content .radio-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.modal-content .day-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+.modal-content .day {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.modal-content .day.selected {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+ /* Dashboard Right Section */
+ .dashboard-right {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-grow: 1; 
+}
+/* Header */
+.dashboard-header {
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+text-align: start;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+}
+
+.dashboard-header .subtitle {
+  font-size: 1.5rem;
+  text-align: start;
+  color: #666666;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+ /* Tabs Container */
+ .date-range-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #e6f7ff; /* Light blue background */
+  border-radius: 50px; /* Pill-shaped container */
+  margin-bottom: 1rem;
+}
+
+/* Tabs */
+.date-range-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.date-range-tabs .tab {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px; /* Rounded corners for tabs */
+  background-color: transparent; /* Transparent background for inactive tabs */
+  color: #666666; /* Gray text for inactive tabs */
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.date-range-tabs .tab.active {
+  background-color: #ffffff; /* White background for active tab */
+  color: #000000; /* Bold black text for active tab */
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for active tab */
+}
+
+.date-range-tabs .tab:hover {
+  background-color: #f0f0f0; /* Light gray hover effect */
+}
+ /* Add Habit Button */
+ .white-button button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary); /* Thin brown border */
+  border-radius: 50px; /* Pill-shaped button */
+  background-color: transparent; /* Transparent background */
+  color: var(--primary); /* Bold brown text */
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.white-button button:hover {
+  background-color: var(--secondary); /* Light brown hover effect */
+}
+
+.white-button svg {
+  fill: var(--primary); /* Brown icon */
+  width: 20px;
+  height: 20px;
+}
+  /* Week Section */
+  .week {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .main-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dateSelector {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .nav-btn {
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .nav-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .main-top-header span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333333;
+  }
+  
+  .main-top-left button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+  }
+  
+  .main-top-left button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .main-top-left svg {
+    width: 20px;
+    height: 20px;
+    color: #666666;
+  }
+  
+  /* Streak Bar */
+  .streak.bar {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+  }
+  
+  .streak.bar .progress-text {
+    font-size: 0.875rem;
+    color: #666666;
+  }
+  
+  /* Week Main (Habit Items) */
+  .week-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .habit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .habit-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .habit-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #333333;
+  }
+  
+  .habit-streak {
+    font-size: 0.875rem;
+    color: #666666;
+    margin: 0.2rem 0 0;
+  }
+  
+  .habit-menu {
+    position: relative;
+  }
+  
+  .menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+  }
+  
+  .menu-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .menu-btn svg {
+    width: 20px;
+    height: 20px;
+    color: #666666;
+  }
+
+  /* Menu Options */
+.menu-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  
+  .menu-options.hidden {
+    display: none;
+  }
+  
+  .menu-options button {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .menu-options button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Selected Day Buttons */
+  .day.selected {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+  }
+
+  /* style for piechat statistic */
+  .pie-chart-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    /* border: 1px solid #ddd; */
+  }
+  .pie-chart-container canvas {
+    width: 100%;
+    height: 100%;
+    /* border-radius: 50%; */
+    border: 1px solid #ddd;
+  }
