@@ -24,11 +24,10 @@
     <div class="button-group">
      
       <button class="button">📊 Statistics</button>
-      <button class="button">👤 About me</button>
-      <button class="button">🗂  Updates</button>
+      <button class="button" id="about-me" >👤 About me</button>
+      <!-- <button class="button">🗂  Updates</button> -->
     </div>
-
-    <div class="layout">
+ <div class="layout">
       <div class="today-box">
         <h4>📅 Today</h4>
         <p><strong>03 May 2025</strong><br>0%</p>
@@ -36,6 +35,7 @@
         <label><input type="checkbox" /> Habit 2</label>
         <label><input type="checkbox" /> Habit 3</label>
       </div>
+   
 
       <section class="dashboard-right">
        <div class="dashboard-header">
@@ -92,7 +92,7 @@
         </div>
        
         <div class="streak bar">
-          <p class="progress-text">Up 0% from the week before • 0% achieved</p>
+          <!-- <p class="progress-text">Up 0% from the week before • 0% achieved</p> -->
         </div>
         <div class="week-main">
           <div class="habit-item">
@@ -138,13 +138,13 @@
       
             <label>3. Weekly frequency</label>
             <div class="day-buttons">
-              <button type="button" class="day">Mon</button>
-              <button type="button" class="day">Tue</button>
-              <button type="button" class="day">Wed</button>
-              <button type="button" class="day">Thu</button>
-              <button type="button" class="day">Fri</button>
-              <button type="button" class="day">Sat</button>
-              <button type="button" class="day">Sun</button>
+              <button type="button" class="day"data-day="1">Mon</button>
+              <button type="button" class="day"data-day="2">Tue</button>
+              <button type="button" class="day"data-day="3">Wed</button>
+              <button type="button" class="day"data-day="4">Thu</button>
+              <button type="button" class="day"data-day="5">Fri</button>
+              <button type="button" class="day"data-day="6">Sat</button>
+              <button type="button" class="day"data-day="0">Sun</button>
             </div>
             <div class="frequency-buttons">
               <button type="button" class="btn small" data-frequency="weekdays">Weekdays</button>
@@ -172,15 +172,16 @@
       
             <label>3. Weekly frequency</label>
             <div class="day-buttons">
-              <button type="button" class="day">Mon</button>
-              <button type="button" class="day">Tue</button>
-              <button type="button" class="day">Wed</button>
-              <button type="button" class="day">Thu</button>
-              <button type="button" class="day">Fri</button>
-              <button type="button" class="day">Sat</button>
-              <button type="button" class="day">Sun</button>
+              <button type="button" class="day"data-day="1">Mon</button>
+              <button type="button" class="day"data-day="2">Tue</button>
+              <button type="button" class="day"data-day="3">Wed</button>
+              <button type="button" class="day"data-day="4">Thu</button>
+              <button type="button" class="day"data-day="5">Fri</button>
+              <button type="button" class="day"data-day="6">Sat</button>
+              <button type="button" class="day"data-day="0">Sun</button>
             </div>
             <button type="submit" class="btn">Save Changes</button>
+            <!-- <button type="submit" class=" habit-item">delete</button> -->
           </form>
         </div>
       </div>
@@ -190,13 +191,25 @@
         <div class="modal-content">
           <span class="close-btn">&times;</span>
           <h2 class="title">Habit Statistics</h2>
-          <p class="modal-subtitle">Your progress in numbers</p>
+          <p class="modal-subtitle">Your progress</p>
           <div class="pie-chart-container">
             <canvas id="pieChart"></canvas>
           </div>
         </div>
 
        </div>
-
-</body>
+       <!-- model to get users name -->
+        <div class="modal" id="nameModal">
+          <div class="modal-content">
+            <span class="close-btn" id="closeNameModal" >&times;</span>
+            <h2 class="title">Welcome to Habit Tracker 2025</h2>
+            <p class="modal-subtitle">Please enter your name</p>
+            <form id="nameForm">
+              <input type="text" id="userName" placeholder="Your Name" required />
+              <button type="submit" class="btn">Submit</button>
+            </form>
+          </div>
+        
+       <script type="module" src="./js/ui.js" ></script>
+      </body>
 </html>
