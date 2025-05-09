@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "set NODE_OPTIONS=--experimental-vm-modules&& jest --coverage",
+    "testWatch": "set NODE_OPTIONS=--experimental-vm-modules&& jest --watchall"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^26.1.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.9"
+  }
+}
